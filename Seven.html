@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>TAP2SKILL Lite - Discover & Track Skills</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f2fff2;
+      color: #333;
+    }
+    header {
+      background-color: #28a745;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    .container {
+      padding: 20px;
+    }
+    .search-bar input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+    .skills {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    .card {
+      background: white;
+      border: 1px solid #ddd;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+    .card h3 {
+      color: #28a745;
+    }
+    .card input[type="checkbox"] {
+      margin-right: 10px;
+    }
+    .motivation {
+      margin-top: 40px;
+      padding: 20px;
+      background-color: #eafdea;
+      border-left: 5px solid #28a745;
+      font-style: italic;
+      border-radius: 8px;
+    }
+    @media (max-width: 600px) {
+      .skills { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>TAP2SKILL Lite</h1>
+  <p>Discover. Track. Grow. For the Ummah.</p>
+</header>
+
+<div class="container">
+  <div class="search-bar">
+    <input type="text" id="searchInput" placeholder="Search for a skill..." onkeyup="filterSkills()">
+  </div>
+
+  <div class="skills" id="skillCards">
+  
+  </div>
+
+  <div class="motivation" id="motivation"></div>
+</div>
+
+<script>
+  const skills = [
+    { title: "Web Development", desc: "Learn to build websites using HTML, CSS, and JS." },
+    { title: "Graphic Design", desc: "Design logos, flyers, and banners using design tools." },
+    { title: "Tailoring", desc: "Sew and design clothing professionally." },
+    { title: "Agricultural Farming", desc: "Modern techniques for growing crops and managing farms." },
+    { title: "Photography", desc: "Capture moments with professional skills and editing." },
+    { title: "Digital Marketing", desc: "Promote brands online using social media and strategy." },
+  ];
+
+  const quotes = [
+    "Skill is Rizq — seek it with sincerity.",
+    "A productive Ummah begins with one learned person.",
+    "Learning a skill is a form of ibadah if your intention is pure.",
+    "Start small, stay consistent — barakah will follow.",
+    "Knowledge with action is true power."
+  ];
+
+  function loadSkills() {
+    const container = document.getElementById('skillCards');
+    container.innerHTML = '';
+    skills.forEach((skill, index) => {
+      const checked = localStorage.getItem(`skill_${index}`) === 'true';
+      const card = document.createElement('div');
+      card.className = 'card';
+      card.innerHTML = `
+        <h3>${skill.title}</h3>
+        <p>${skill.desc}</p>
+        <label><input type="checkbox" onchange="toggleSkill(${index})" ${checked ? 'checked' : ''}> Mark as learned</label>
+      `;
+      container.appendChild(card);
+    });
+  }
+
+  function toggleSkill(index) {
+    const key = `skill_${index}`;
+    const current = localStorage.getItem(key) === 'true';
+    localStorage.setItem(key, !current);
+  }
+
+  function filterSkills() {
+    const term = document.getElementById('searchInput').value.toLowerCase();
+    const cards = document.querySelectorAll('.card');
+    cards.forEach(card => {
+      const title = card.querySelector('h3').textContent.toLowerCase();
+      card.style.display = title.includes(term) ? 'block' : 'none';
+    });
+  }
+
+  function showRandomQuote() {
+    const quote = quotes[Math.floor(Math.random() * quotes.length)];
+    document.getElementById('motivation').innerText = `📢 ${quote}`;
+  }
+
+  
+  loadSkills();
+  showRandomQuote();
+</script>
+
+</body>
+</html>

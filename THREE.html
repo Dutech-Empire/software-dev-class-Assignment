@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>DUTECH Color Palette</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background-color: #f4f4f4;
+      padding: 20px;
+      text-align: center;
+    }
+
+    h1 {
+      color: #28a745;
+    }
+
+    .palette {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .color-box {
+      width: 150px;
+      height: 150px;
+      border-radius: 12px;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 16px;
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+
+    .color-box:hover {
+      transform: scale(1.1);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+
+    .green {
+      background-color: #28a745;
+    }
+
+    .white {
+      background-color: #ffffff;
+      color: #333;
+      border: 1px solid #ccc;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>DUTECH Brand Colors</h1>
+  <div class="palette">
+    <div class="color-box green">#28a745<br>Green (Growth)</div>
+    <div class="color-box white">#ffffff<br>White (Purity)</div>
+  </div>
+
+</body>
+</html>

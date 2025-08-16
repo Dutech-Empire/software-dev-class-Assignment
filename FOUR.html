@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Quizathon Motivator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #eefbee;
+      padding: 30px;
+      text-align: center;
+    }
+
+    h1 {
+      color: #28a745;
+    }
+
+    button {
+      padding: 15px 30px;
+      font-size: 16px;
+      color: white;
+      background-color: #28a745;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background-color: #218838;
+    }
+
+    #quote {
+      margin-top: 30px;
+      font-style: italic;
+      font-size: 18px;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Quizathon Motivation</h1>
+  <button onclick="showQuote()">Click to Prepare for Quizathon!</button>
+
+  <p id="quote"></p>
+
+  <script>
+    function showQuote() {
+      const quote = "Push your limits — the Ummah needs your brilliance!";
+      document.getElementById("quote").innerText = quote;
+    }
+  </script>
+
+</body>
+</html>
