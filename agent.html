@@ -1,0 +1,25 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Agent Application</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h2>Agent Signup</h2>
+  <form onsubmit="return handleAgentSubmit(event)">
+    <input type="text" placeholder="Name" /><br />
+    <input type="tel" placeholder="Phone Number" /><br />
+    <input type="text" placeholder="City" /><br />
+    <select>
+      <option value="">Select Transport</option>
+      <option value="bike">Bike</option>
+      <option value="car">Car</option>
+      <option value="foot">On Foot</option>
+    </select><br />
+    <button type="submit">Join as Agent</button>
+  </form>
+  <script src="script.js"></script>
+</body>
+</html>
